@@ -1,0 +1,131 @@
+{
+  "info": {
+    "_postman_id": "cb6f1b58-1234-5678-9012-abcdefabcdef",
+    "name": "ComicVault",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Registrar Usuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"alberto\",\n    \"password\": \"123456\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:4000/auth/register",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["auth","register"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login Usuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"alberto\",\n    \"password\": \"123456\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:4000/auth/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["auth","login"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear Cómic",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"title\": \"Dragon Ball\",\n    \"author\": \"Akira Toriyama\",\n    \"year\": 1984,\n    \"publisher\": \"Shueisha\",\n    \"status\": \"pendiente\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:4000/comics",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["comics"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar Cómics",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://localhost:4000/comics",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["comics"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizar Cómic",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"status\": \"leído\"\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "http://localhost:4000/comics/{{comicId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["comics","{{comicId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Eliminar Cómic",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://localhost:4000/comics/{{comicId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["comics","{{comicId}}"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    { "key": "token", "value": "" },
+    { "key": "comicId", "value": "" }
+  ]
+}
